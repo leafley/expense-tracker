@@ -1,0 +1,6 @@
+@rillion_HostAddress = http://localhost:5192
+
+GET {{rillion_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
