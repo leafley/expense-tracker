@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.002.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rillion.AspNet", "Rillion.AspNet/Rillion.AspNet.csproj", "{2E726422-C717-4E02-B69A-D575E84DEB99}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Rillion.AspNet", "Rillion.AspNet\Rillion.AspNet.csproj", "{2E726422-C717-4E02-B69A-D575E84DEB99}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rillion.Application", "Rillion.Application\Rillion.Application.csproj", "{F45BCF5D-CF23-40DE-8D00-12C85016F577}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rillion.Infrastructure", "Rillion.Infrastructure\Rillion.Infrastructure.csproj", "{1AE5BFBF-5694-4BAC-AA53-40F3F0D055F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rillion.Domain", "Rillion.Domain\Rillion.Domain.csproj", "{6F9E2091-FF1E-45FC-95FC-248F64B69184}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{2E726422-C717-4E02-B69A-D575E84DEB99}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E726422-C717-4E02-B69A-D575E84DEB99}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E726422-C717-4E02-B69A-D575E84DEB99}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F45BCF5D-CF23-40DE-8D00-12C85016F577}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F45BCF5D-CF23-40DE-8D00-12C85016F577}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F45BCF5D-CF23-40DE-8D00-12C85016F577}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F45BCF5D-CF23-40DE-8D00-12C85016F577}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AE5BFBF-5694-4BAC-AA53-40F3F0D055F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AE5BFBF-5694-4BAC-AA53-40F3F0D055F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AE5BFBF-5694-4BAC-AA53-40F3F0D055F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AE5BFBF-5694-4BAC-AA53-40F3F0D055F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F9E2091-FF1E-45FC-95FC-248F64B69184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F9E2091-FF1E-45FC-95FC-248F64B69184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F9E2091-FF1E-45FC-95FC-248F64B69184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F9E2091-FF1E-45FC-95FC-248F64B69184}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
