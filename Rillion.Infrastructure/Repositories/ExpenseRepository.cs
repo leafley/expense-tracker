@@ -5,9 +5,9 @@ namespace Infrastructure.Repositories;
 
 public class ExpenseRepository : IExpenseRepository
 {
-    private readonly ExpenseDbContext _context;
+    private readonly ApplicationDbContext _context;
 
-    public ExpenseRepository(ExpenseDbContext context)
+    public ExpenseRepository(ApplicationDbContext context)
     {
         _context = context;
     }

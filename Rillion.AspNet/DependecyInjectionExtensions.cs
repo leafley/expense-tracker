@@ -15,7 +15,7 @@ public static class DependecyInjectionExtensions
 
     public static IServiceCollection AddInfrastructure(this IServiceCollection services, ConfigurationManager configuration)
     {
-        services.AddDbContext<ExpenseDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("Default")));
+        services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("Default")));
         return services;
     }
 }

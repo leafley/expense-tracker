@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 
-public class ExpenseDbContext : DbContext
+public class ApplicationDbContext : DbContext
 {
-    public ExpenseDbContext(DbContextOptions options)
+    public ApplicationDbContext(DbContextOptions options)
     : base(options)
     {
     }

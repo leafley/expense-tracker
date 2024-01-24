@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Rillion.Infrastructure.Migrations
 {
-    [DbContext(typeof(ExpenseDbContext))]
+    [DbContext(typeof(ApplicationDbContext))]
     [Migration("20240124145251_InitialCreate")]
     partial class InitialCreate
     {
