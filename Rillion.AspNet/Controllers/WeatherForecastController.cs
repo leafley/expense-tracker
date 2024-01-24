@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace rillion.Controllers;
+namespace Rillion.AspNet.Controllers;
 
 [ApiController]
 [Route("[controller]")]

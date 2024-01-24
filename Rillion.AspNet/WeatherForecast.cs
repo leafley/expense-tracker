@@ -1,4 +1,4 @@
-namespace rillion;
+namespace Rillion.AspNet;
 
 public class WeatherForecast
 {
