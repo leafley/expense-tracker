@@ -2,6 +2,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Rillion.Domain\Rillion.Domain.csproj" />
+    <ProjectReference Include="..\Rillion.Application\Rillion.Application.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
   </ItemGroup>
 
   <PropertyGroup>
