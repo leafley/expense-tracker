@@ -22,4 +22,12 @@ public class CategoryController : ControllerBase
     [HttpPost]
     public async Task<Category> UpdateAsync([FromBody] UpdateCategory command) =>
         await _mediator.Send(command);
+
+    [HttpDelete]
+    public async Task<Category> DeleteAsync([FromBody] DeleteCategory command) =>
+        await _mediator.Send(command);
+
+    [HttpGet]
+    public async Task<IEnumerable<Category>> GetAllAsync() =>
+        await _mediator.Send(new QueryCategory());
 }
