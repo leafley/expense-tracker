@@ -15,7 +15,11 @@ public class CategoryController : ControllerBase
         _mediator = mediator;
     }
 
+    [HttpPut]
+    public async Task<Category> AddAsync([FromBody] CreateCategory command) =>
+        await _mediator.Send(command);
+
     [HttpPost]
-    public async Task<Category> AddAsync([FromBody]string name) =>
-        await _mediator.Send(new CreateCategory(name));
+    public async Task<Category> UpdateAsync([FromBody] UpdateCategory command) =>
+        await _mediator.Send(command);
 }

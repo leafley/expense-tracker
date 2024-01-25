@@ -17,4 +17,18 @@ public class CategoryRepository : ICategoryRepository
 
         return category;
     }
+
+    public async Task<Category> UpdateAsync(long id, string name)
+    {
+        var category = _context.Categories.SingleOrDefault(n => n.Id == id);
+
+        if (category is null)
+            throw new InvalidOperationException("Update: Category does not exist");
+
+        category.Name = name;
+
+        await _context.SaveChangesAsync();
+
+        return category;
+    }
 }
