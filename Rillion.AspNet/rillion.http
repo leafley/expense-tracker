@@ -1,6 +1,29 @@
 @rillion_HostAddress = http://localhost:5192
 
-GET {{rillion_HostAddress}}/weatherforecast/
-Accept: application/json
+### Register the test user
+POST {{rillion_HostAddress}}/register
+Content-Type: application/json
 
-###
+{
+    "email": "test@test.com",
+    "password": "Mysecretp@ssw0rd"
+}
+
+### Get access token for test user
+POST {{rillion_HostAddress}}/login
+Content-Type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "Mysecretp@ssw0rd"
+}
+
+### auth test
+GET {{rillion_HostAddress}}/manage/info
+Accept: application/json
+Authorization: Bearer CfDJ8PvtjQMCay1Fm5RgD3Fa7zb7L2JR-ZrtVYsaJ45YVmXBXjIvNeHhRc44wGq7eVtbwyidtDw6qv1G5AUieXhWas9PuBEzfMuFLDRzPxmWTEHfZIFm0OsCYzDX1BHFAS_2taOODpcnjeFhnv7ARDwCRfHsihqEOEbUU40tZbO9IllAHZq1EOVlllCuwR0spbFJh4w9UVl1fs4OMjEnYeLvCNppX_4yeScbODBmSeXFKUfRcMzvSaLq5vECIWAoLiv0Ao6Zv_B3WCRzjF9hDDaKFafzkt2PXX-UIQMmTatdMBe7OMyzC431mgQrHI983iDcBjy-8fl9CsyBJxWONCJ16E1L8a_ryWyC-eyvve-kbIDf-WgDiSdIwu1g4lnLlSnJ6p5-wThuiuYNeT-LhKJpCoe_VD27H0ni8LxqAHY7OWEzgjr54MabrSnvWQvFRKFMA7cNF73dsf5Vvw4n8MPcrXU3YizKva6AnkAjYrDOALSNLe6eMTz2KqWe5wf6Ie-IW2K2wF9IO1zP0MlrkuN2xCPqbahqv5SbbXx0xwLjWJWwEdRVysaoGZTqHw9jZkOGdGKaB_fZphEgMjkUn9uv_GEQsTJaaRXxbLoWh78pQPbIaDiFdcWWRLjSHzSrLyFxbitQ6QMkTSUvM3x6FSANWww
+
+### protected endpoint
+GET {{rillion_HostAddress}}/weatherforecast
+Accept: application/json
+Authorization: Bearer CfDJ8PvtjQMCay1Fm5RgD3Fa7zb7L2JR-ZrtVYsaJ45YVmXBXjIvNeHhRc44wGq7eVtbwyidtDw6qv1G5AUieXhWas9PuBEzfMuFLDRzPxmWTEHfZIFm0OsCYzDX1BHFAS_2taOODpcnjeFhnv7ARDwCRfHsihqEOEbUU40tZbO9IllAHZq1EOVlllCuwR0spbFJh4w9UVl1fs4OMjEnYeLvCNppX_4yeScbODBmSeXFKUfRcMzvSaLq5vECIWAoLiv0Ao6Zv_B3WCRzjF9hDDaKFafzkt2PXX-UIQMmTatdMBe7OMyzC431mgQrHI983iDcBjy-8fl9CsyBJxWONCJ16E1L8a_ryWyC-eyvve-kbIDf-WgDiSdIwu1g4lnLlSnJ6p5-wThuiuYNeT-LhKJpCoe_VD27H0ni8LxqAHY7OWEzgjr54MabrSnvWQvFRKFMA7cNF73dsf5Vvw4n8MPcrXU3YizKva6AnkAjYrDOALSNLe6eMTz2KqWe5wf6Ie-IW2K2wF9IO1zP0MlrkuN2xCPqbahqv5SbbXx0xwLjWJWwEdRVysaoGZTqHw9jZkOGdGKaB_fZphEgMjkUn9uv_GEQsTJaaRXxbLoWh78pQPbIaDiFdcWWRLjSHzSrLyFxbitQ6QMkTSUvM3x6FSANWww
