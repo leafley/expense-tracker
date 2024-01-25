@@ -14,5 +14,5 @@ public class UpdateCategoryHandler : IRequestHandler<UpdateCategory, Domain.Enti
     }
 
     public async Task<Domain.Entities.Category?> Handle(UpdateCategory request, CancellationToken cancellationToken) =>
-        await _repository.UpdateAsync(request.Id, request.Name);
+        await _repository.UpdateAsync(request.Id, request.Name, cancellationToken);
 }

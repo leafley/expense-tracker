@@ -20,18 +20,18 @@ public class CategoryController : ControllerBase
     }
 
     [HttpPut]
-    public async Task<Domain.Entities.Category> AddAsync([FromBody] CreateCategory command) =>
-        await _mediator.Send(command);
+    public async Task<Domain.Entities.Category> AddAsync([FromBody] CreateCategory command, CancellationToken cancellationToken) =>
+        await _mediator.Send(command, cancellationToken);
 
     [HttpPost]
-    public async Task<Domain.Entities.Category> UpdateAsync([FromBody] UpdateCategory command) =>
-        await _mediator.Send(command);
+    public async Task<Domain.Entities.Category> UpdateAsync([FromBody] UpdateCategory command, CancellationToken cancellationToken) =>
+        await _mediator.Send(command, cancellationToken);
 
     [HttpDelete]
-    public async Task<Domain.Entities.Category> DeleteAsync([FromBody] DeleteCategory command) =>
-        await _mediator.Send(command);
+    public async Task<Domain.Entities.Category> DeleteAsync([FromBody] DeleteCategory command, CancellationToken cancellationToken) =>
+        await _mediator.Send(command, cancellationToken);
 
     [HttpGet]
-    public async Task<IEnumerable<Domain.Entities.Category>> GetAllAsync() =>
-        await _mediator.Send(new QueryCategory());
+    public async Task<IEnumerable<Domain.Entities.Category>> GetAllAsync(CancellationToken cancellationToken) =>
+        await _mediator.Send(new QueryCategory(), cancellationToken);
 }

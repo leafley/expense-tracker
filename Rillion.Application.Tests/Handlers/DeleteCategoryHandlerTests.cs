@@ -18,7 +18,7 @@ public class DeleteCategoryHandlerTests
     public async Task Handle_ValidCommand_RetunsDomainType()
     {
         var command = new DeleteCategory(1);
-        A.CallTo(() => _repository.DeleteAsync(command.Id))
+        A.CallTo(() => _repository.DeleteAsync(command.Id, A<CancellationToken>._))
             .Returns(new Domain.Entities.Category { Id = command.Id, Name = "SomeName" });
 
         var result = await _handler.Handle(command, CancellationToken.None);
@@ -31,7 +31,7 @@ public class DeleteCategoryHandlerTests
     public async Task Handle_CategoryDoesntExist_RetunsNull()
     {
         var command = new DeleteCategory(1);
-        A.CallTo(() => _repository.DeleteAsync(command.Id))
+        A.CallTo(() => _repository.DeleteAsync(command.Id, A<CancellationToken>._))
             .Returns(null as Domain.Entities.Category);
 
         var result = await _handler.Handle(command, CancellationToken.None);

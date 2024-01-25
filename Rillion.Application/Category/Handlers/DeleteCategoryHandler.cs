@@ -15,6 +15,6 @@ public class DeleteCategoryHandler : IRequestHandler<DeleteCategory, Domain.Enti
 
     public async Task<Domain.Entities.Category?> Handle(DeleteCategory request, CancellationToken cancellationToken)
     {
-        return await _repository.DeleteAsync(request.Id);
+        return await _repository.DeleteAsync(request.Id, cancellationToken);
     }
 }

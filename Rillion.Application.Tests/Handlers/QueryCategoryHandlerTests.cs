@@ -19,7 +19,7 @@ public class QueryCategoryHandlerTests
     {
         Domain.Entities.Category[] expected = [new() { Id = 1, Name = "SomeCategory" }, new() { Id = 2, Name = "SomeOtherCategory" }];
         var command = new QueryCategory();
-        A.CallTo(() => _repository.GetAllAsync())
+        A.CallTo(() => _repository.GetAllAsync(A<CancellationToken>._))
             .Returns(expected);
 
         var result = await _handler.Handle(command, CancellationToken.None);

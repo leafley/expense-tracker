@@ -30,15 +30,18 @@ public class ExpenseRepository : IExpenseRepository
             .OrderBy(n => n.Id)
             .Skip(page * pageSize)
             .Take(pageSize)
-            .ToListAsync();
+            .ToListAsync(cancellationToken);
 
-    public async Task<Expense> UpdateAsync(long id, long amount, CancellationToken cancellationToken)
+    public async Task<Expense?> UpdateAsync(long id, long amount, CancellationToken cancellationToken)
     {
-        var expense = await _context.Expenses.SingleAsync(n => n.Id == id);
+        var expense = await _context.Expenses.SingleAsync(n => n.Id == id, cancellationToken);
+
+        if (cancellationToken.IsCancellationRequested)
+            return null;
 
         expense.Amount = amount;
 
-        await _context.SaveChangesAsync();
+        await _context.SaveChangesAsync(cancellationToken);
 
         return expense;
     }

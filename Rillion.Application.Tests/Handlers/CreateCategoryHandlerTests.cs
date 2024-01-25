@@ -18,7 +18,7 @@ public class CreateCategoryHandlerTests
     public async Task Handle_ValidCommand_RetunsDomainType()
     {
         var expected = "SomeName";
-        A.CallTo(() => _repository.AddAsync(A<string>._))
+        A.CallTo(() => _repository.AddAsync(A<string>._, A<CancellationToken>._))
             .Returns(new Domain.Entities.Category { Id = 1, Name = expected });
 
         var result = await _handler.Handle(new CreateCategory(expected), CancellationToken.None);

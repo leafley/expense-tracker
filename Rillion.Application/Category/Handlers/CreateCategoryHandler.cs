@@ -16,7 +16,7 @@ public class CreateCategoryHandler : IRequestHandler<CreateCategory, Domain.Enti
     public async Task<Domain.Entities.Category> Handle(CreateCategory request, CancellationToken cancellationToken)
     {
 #pragma warning disable CS8604 // Possible null reference argument.
-        return await _repository.AddAsync(request.Name);
+        return await _repository.AddAsync(request.Name, cancellationToken);
 #pragma warning restore CS8604 // Possible null reference argument.
     }
 }

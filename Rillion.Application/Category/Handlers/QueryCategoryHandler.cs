@@ -14,5 +14,5 @@ public class QueryCategoryHandler : IRequestHandler<QueryCategory, IEnumerable<D
     }
 
     public async Task<IEnumerable<Domain.Entities.Category>> Handle(QueryCategory request, CancellationToken cancellationToken) =>
-        await _repository.GetAllAsync();
+        await _repository.GetAllAsync(cancellationToken);
 }
