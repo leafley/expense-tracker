@@ -19,6 +19,10 @@ public class ApplicationDbContext : IdentityDbContext<IdentityUser<long>, Identi
     {
         base.OnModelCreating(modelBuilder);
 
+        modelBuilder.Entity<Category>()
+            .HasIndex(category => category.Name)
+            .IsUnique();
+
         modelBuilder.Entity<Expense>()
             .HasOne(expense => expense.Category)
             .WithMany(category => category.Expenses)
