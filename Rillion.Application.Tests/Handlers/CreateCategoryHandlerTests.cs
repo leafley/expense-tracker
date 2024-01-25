@@ -15,7 +15,7 @@ public class CreateCategoryHandlerTests
         A.CallTo(() => _repository.AddAsync(A<string>._))
             .Returns(new Category { Id = 1, Name = expected });
 
-        var result = await _handler.Handle(new CreateCategory { Name = expected }, CancellationToken.None);
+        var result = await _handler.Handle(new CreateCategory(expected), CancellationToken.None);
 
         result.Name.Should().Be(expected);
     }

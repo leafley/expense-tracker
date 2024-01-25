@@ -12,7 +12,7 @@ public class CreateCategoryValidatorTests
     [Fact]
     public void Validate_ValidName_NoErrors()
     {
-        var result = _validator.Validate(new CreateCategory { Name = "SomeName" });
+        var result = _validator.Validate(new CreateCategory("SomeName"));
 
         result.Errors.Should().BeEmpty();
     }
@@ -22,7 +22,7 @@ public class CreateCategoryValidatorTests
     [InlineData("")]
     public void Validate_InvalidName_AddNameError(string name)
     {
-        var command = new CreateCategory { Name = name };
+        var command = new CreateCategory(name);
 
         var result = _validator.Validate(command);
 

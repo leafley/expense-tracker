@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations;
 using MediatR;
 
 public class CreateCategoryHandler : IRequestHandler<CreateCategory, Category>
