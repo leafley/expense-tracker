@@ -23,6 +23,19 @@ public class ExpenseRepository : IExpenseRepository
         return expense;
     }
 
+    public async Task<Expense?> DeleteAsync(long id, long userId, CancellationToken cancellationToken)
+    {
+        var expense = await _context.Expenses.SingleOrDefaultAsync(n => n.Id == id && n.UserId == userId, cancellationToken);
+
+        if (expense is null || cancellationToken.IsCancellationRequested)
+            return null;
+
+        _context.Expenses.Remove(expense);
+        await _context.SaveChangesAsync(cancellationToken);
+
+        return expense;
+    }
+
     public async Task<IEnumerable<Expense>> GetPageAsync(long userId, int page, int pageSize, CancellationToken cancellationToken) =>
         await _context.Expenses
             .AsNoTracking()
@@ -32,14 +45,28 @@ public class ExpenseRepository : IExpenseRepository
             .Take(pageSize)
             .ToListAsync(cancellationToken);
 
-    public async Task<Expense?> UpdateAsync(long id, long amount, CancellationToken cancellationToken)
+    public async Task<Expense?> UpdateAmountAsync(long id, long userId, long amount, CancellationToken cancellationToken)
     {
-        var expense = await _context.Expenses.SingleAsync(n => n.Id == id, cancellationToken);
+        var expense = await _context.Expenses.SingleOrDefaultAsync(n => n.Id == id && n.UserId == userId, cancellationToken);
 
-        if (cancellationToken.IsCancellationRequested)
+        if (expense is null || cancellationToken.IsCancellationRequested)
             return null;
 
         expense.Amount = amount;
+
+        await _context.SaveChangesAsync(cancellationToken);
+
+        return expense;
+    }
+
+    public async Task<Expense?> UpdateCategoryIdAsync(long id, long userId, long categoryId, CancellationToken cancellationToken)
+    {
+        var expense = await _context.Expenses.SingleOrDefaultAsync(n => n.Id == id && n.UserId == userId, cancellationToken);
+
+        if (expense is null || cancellationToken.IsCancellationRequested)
+            return null;
+
+        expense.CategoryId = categoryId;
 
         await _context.SaveChangesAsync(cancellationToken);
 
