@@ -1,6 +1,6 @@
 using MediatR;
 
-public class UpdateCategoryHandler : IRequestHandler<UpdateCategory, Category>
+public class UpdateCategoryHandler : IRequestHandler<UpdateCategory, Category?>
 {
     private readonly ICategoryRepository _repository;
 
@@ -9,8 +9,6 @@ public class UpdateCategoryHandler : IRequestHandler<UpdateCategory, Category>
         _repository = repository;
     }
 
-    public async Task<Category> Handle(UpdateCategory request, CancellationToken cancellationToken)
-    {
-        return await _repository.UpdateAsync(request.Id, request.Name);
-    }
+    public async Task<Category?> Handle(UpdateCategory request, CancellationToken cancellationToken) =>
+        await _repository.UpdateAsync(request.Id, request.Name);
 }

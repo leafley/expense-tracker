@@ -17,6 +17,18 @@ public class UpdateCategoryHandlerTests
 
         var result = await _handler.Handle(command, CancellationToken.None);
 
-        result.Name.Should().Be(command.Name);
+        result?.Name.Should().Be(command.Name);
+    }
+
+    [Fact]
+    public async Task Handle_CategoryNotFound_ReturnsNull()
+    {
+        var command = new UpdateCategory(1, "NewName");
+        A.CallTo(() => _repository.UpdateAsync(command.Id, A<string>._))
+            .Returns(null as Category);
+
+        var result = await _handler.Handle(command, CancellationToken.None);
+
+        result.Should().BeNull();
     }
 }
