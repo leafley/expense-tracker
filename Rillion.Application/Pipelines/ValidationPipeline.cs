@@ -14,6 +14,9 @@ public class ValidationPipeline<TRequest, TResponse>
 
     public Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
+        if (request is null)
+            throw new ArgumentNullException(nameof(request));
+
         var failures = _validators
             .Select(n => n.Validate(request))
             .Where(n => !n.IsValid)
