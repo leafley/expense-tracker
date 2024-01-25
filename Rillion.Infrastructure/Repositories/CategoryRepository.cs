@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 
 public class CategoryRepository : ICategoryRepository
 {
@@ -18,12 +19,29 @@ public class CategoryRepository : ICategoryRepository
         return category;
     }
 
-    public async Task<Category> UpdateAsync(long id, string name)
+    public async Task<Category?> DeleteAsync(long id)
     {
-        var category = _context.Categories.SingleOrDefault(n => n.Id == id);
+
+        var category = await _context.Categories.SingleOrDefaultAsync(n => n.Id == id);
 
         if (category is null)
-            throw new InvalidOperationException("Update: Category does not exist");
+            return null;
+
+        _context.Remove(category);
+        await _context.SaveChangesAsync();
+
+        return category;
+    }
+
+    public async Task<IEnumerable<Category>> GetAllAsync() =>
+        await _context.Categories.ToListAsync();
+
+    public async Task<Category?> UpdateAsync(long id, string name)
+    {
+        var category = await _context.Categories.SingleOrDefaultAsync(n => n.Id == id);
+
+        if (category is null)
+            return null;
 
         category.Name = name;
 
