@@ -1,3 +1,6 @@
+using Rillion.Application.Expense.Queries;
+using Rillion.Application.Expense.Validators;
+
 namespace Rillion.Application.Tests.Validators;
 
 public class QueryExpensePageValidatorTests

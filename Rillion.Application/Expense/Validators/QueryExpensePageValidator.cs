@@ -1,4 +1,7 @@
 using FluentValidation;
+using Rillion.Application.Expense.Queries;
+
+namespace Rillion.Application.Expense.Validators;
 
 public class QueryExpensePageValidator : AbstractValidator<QueryExpensePage>
 {

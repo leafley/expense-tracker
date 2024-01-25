@@ -2,6 +2,10 @@
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Rillion.Application.Category.Commands;
+using Rillion.Application.Category.Queries;
+
+namespace Rillion.AspNet.Controllers;
 
 [ApiController]
 [Authorize]
@@ -16,18 +20,18 @@ public class CategoryController : ControllerBase
     }
 
     [HttpPut]
-    public async Task<Category> AddAsync([FromBody] CreateCategory command) =>
+    public async Task<Domain.Entities.Category> AddAsync([FromBody] CreateCategory command) =>
         await _mediator.Send(command);
 
     [HttpPost]
-    public async Task<Category> UpdateAsync([FromBody] UpdateCategory command) =>
+    public async Task<Domain.Entities.Category> UpdateAsync([FromBody] UpdateCategory command) =>
         await _mediator.Send(command);
 
     [HttpDelete]
-    public async Task<Category> DeleteAsync([FromBody] DeleteCategory command) =>
+    public async Task<Domain.Entities.Category> DeleteAsync([FromBody] DeleteCategory command) =>
         await _mediator.Send(command);
 
     [HttpGet]
-    public async Task<IEnumerable<Category>> GetAllAsync() =>
+    public async Task<IEnumerable<Domain.Entities.Category>> GetAllAsync() =>
         await _mediator.Send(new QueryCategory());
 }

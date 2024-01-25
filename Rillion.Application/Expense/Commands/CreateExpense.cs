@@ -1,6 +1,8 @@
 using MediatR;
 
-public record CreateExpense : IRequest<Expense>
+namespace Rillion.Application.Expense.Commands;
+
+public record CreateExpense : IRequest<Domain.Entities.Expense>
 {
     public long UserId { get; set; }
     public long Amount { get; set; }

@@ -1,3 +1,5 @@
 using MediatR;
 
-public record UpdateExpenseAmount(long Id, long UserId, long Amount) : IRequest<Expense>;
+namespace Rillion.Application.Expense.Commands;
+
+public record UpdateExpenseAmount(long Id, long UserId, long Amount) : IRequest<Domain.Entities.Expense>;

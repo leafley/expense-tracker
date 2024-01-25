@@ -1,6 +1,10 @@
 using MediatR;
+using Rillion.Application.Abstractions;
+using Rillion.Application.Category.Commands;
 
-public class DeleteCategoryHandler : IRequestHandler<DeleteCategory, Category?>
+namespace Rillion.Application.Category.Handlers;
+
+public class DeleteCategoryHandler : IRequestHandler<DeleteCategory, Domain.Entities.Category?>
 {
     private readonly ICategoryRepository _repository;
 
@@ -9,7 +13,7 @@ public class DeleteCategoryHandler : IRequestHandler<DeleteCategory, Category?>
         _repository = repository;
     }
 
-    public async Task<Category?> Handle(DeleteCategory request, CancellationToken cancellationToken)
+    public async Task<Domain.Entities.Category?> Handle(DeleteCategory request, CancellationToken cancellationToken)
     {
         return await _repository.DeleteAsync(request.Id);
     }

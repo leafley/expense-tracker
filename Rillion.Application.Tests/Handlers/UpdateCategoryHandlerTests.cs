@@ -1,3 +1,9 @@
+using Rillion.Application.Abstractions;
+using Rillion.Application.Category.Commands;
+using Rillion.Application.Category.Handlers;
+
+namespace Rillion.Application.Tests.Handlers;
+
 public class UpdateCategoryHandlerTests
 {
     private readonly ICategoryRepository _repository = A.Fake<ICategoryRepository>();
@@ -13,7 +19,7 @@ public class UpdateCategoryHandlerTests
     {
         var command = new UpdateCategory(1, "NewName");
         A.CallTo(() => _repository.UpdateAsync(command.Id, A<string>._))
-            .ReturnsLazily((long id, string name) => new Category { Id = id, Name = name });
+            .ReturnsLazily((long id, string name) => new Domain.Entities.Category { Id = id, Name = name });
 
         var result = await _handler.Handle(command, CancellationToken.None);
 
@@ -25,7 +31,7 @@ public class UpdateCategoryHandlerTests
     {
         var command = new UpdateCategory(1, "NewName");
         A.CallTo(() => _repository.UpdateAsync(command.Id, A<string>._))
-            .Returns(null as Category);
+            .Returns(null as Domain.Entities.Category);
 
         var result = await _handler.Handle(command, CancellationToken.None);
 

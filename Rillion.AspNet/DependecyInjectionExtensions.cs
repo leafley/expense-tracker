@@ -1,7 +1,11 @@
 using FluentValidation;
-using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Rillian.Infrastructure.Repositories;
 using Rillion.Application.Abstractions;
+using Rillion.Infrastructure;
+using Rillion.Infrastructure.Repositories;
+
+namespace Rillion.AspNet;
 
 public static class DependecyInjectionExtensions
 {

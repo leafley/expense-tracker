@@ -1,3 +1,9 @@
+using Rillion.Application.Abstractions;
+using Rillion.Application.Category.Queries;
+using Rillion.Application.Category.Handlers;
+
+namespace Rillion.Application.Tests.Handlers;
+
 public class QueryCategoryHandlerTests
 {
     private readonly ICategoryRepository _repository = A.Fake<ICategoryRepository>();
@@ -11,7 +17,7 @@ public class QueryCategoryHandlerTests
     [Fact]
     public async Task Handle_ValidCommand_RetunsDomainType()
     {
-        Category[] expected = [new() { Id = 1, Name = "SomeCategory" }, new() { Id = 2, Name = "SomeOtherCategory" }];
+        Domain.Entities.Category[] expected = [new() { Id = 1, Name = "SomeCategory" }, new() { Id = 2, Name = "SomeOtherCategory" }];
         var command = new QueryCategory();
         A.CallTo(() => _repository.GetAllAsync())
             .Returns(expected);

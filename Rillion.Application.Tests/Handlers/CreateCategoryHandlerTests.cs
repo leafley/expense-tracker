@@ -1,3 +1,9 @@
+using Rillion.Application.Abstractions;
+using Rillion.Application.Category.Commands;
+using Rillion.Application.Category.Handlers;
+
+namespace Rillion.Application.Tests.Handlers;
+
 public class CreateCategoryHandlerTests
 {
     private readonly ICategoryRepository _repository = A.Fake<ICategoryRepository>();
@@ -13,7 +19,7 @@ public class CreateCategoryHandlerTests
     {
         var expected = "SomeName";
         A.CallTo(() => _repository.AddAsync(A<string>._))
-            .Returns(new Category { Id = 1, Name = expected });
+            .Returns(new Domain.Entities.Category { Id = 1, Name = expected });
 
         var result = await _handler.Handle(new CreateCategory(expected), CancellationToken.None);
 

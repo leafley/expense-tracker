@@ -1,4 +1,7 @@
 using FluentValidation;
+using Rillion.Application.Category.Commands;
+
+namespace Rillion.Application.Category.Validators;
 
 public class UpdateCategoryValidator : AbstractValidator<UpdateCategory>
 {

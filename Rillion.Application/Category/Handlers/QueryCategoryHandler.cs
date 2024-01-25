@@ -1,6 +1,10 @@
 using MediatR;
+using Rillion.Application.Abstractions;
+using Rillion.Application.Category.Queries;
 
-public class QueryCategoryHandler : IRequestHandler<QueryCategory, IEnumerable<Category>>
+namespace Rillion.Application.Category.Handlers;
+
+public class QueryCategoryHandler : IRequestHandler<QueryCategory, IEnumerable<Domain.Entities.Category>>
 {
     private readonly ICategoryRepository _repository;
 
@@ -9,6 +13,6 @@ public class QueryCategoryHandler : IRequestHandler<QueryCategory, IEnumerable<C
         _repository = repository;
     }
 
-    public async Task<IEnumerable<Category>> Handle(QueryCategory request, CancellationToken cancellationToken) =>
+    public async Task<IEnumerable<Domain.Entities.Category>> Handle(QueryCategory request, CancellationToken cancellationToken) =>
         await _repository.GetAllAsync();
 }

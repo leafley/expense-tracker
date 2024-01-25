@@ -1,5 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 
+namespace Rillion.Domain.Entities;
+
 public class Category
 {
     [Required]

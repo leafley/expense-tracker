@@ -1,3 +1,5 @@
 using MediatR;
 
-public record DeleteCategory(long Id) : IRequest<Category>;
+namespace Rillion.Application.Category.Commands;
+
+public record DeleteCategory(long Id) : IRequest<Domain.Entities.Category>;

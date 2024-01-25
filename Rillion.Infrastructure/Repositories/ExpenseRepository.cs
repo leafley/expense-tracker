@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using Rillion.Application.Abstractions;
+using Rillion.Domain.Entities;
+using Rillion.Infrastructure;
 
-namespace Infrastructure.Repositories;
+namespace Rillian.Infrastructure.Repositories;
 
 public class ExpenseRepository : IExpenseRepository
 {
@@ -21,17 +23,14 @@ public class ExpenseRepository : IExpenseRepository
         return expense;
     }
 
-    public async Task<IEnumerable<Expense>> GetPageAsync<TKey>(long userId, int page, int pageSize, System.Linq.Expressions.Expression<Func<Expense, TKey>> orderyBy, CancellationToken cancellationToken) =>
+    public async Task<IEnumerable<Expense>> GetPageAsync(long userId, int page, int pageSize, CancellationToken cancellationToken) =>
         await _context.Expenses
             .AsNoTracking()
             .Where(n => n.UserId == userId)
-            .OrderBy(orderyBy)
+            .OrderBy(n => n.Id)
             .Skip(page * pageSize)
             .Take(pageSize)
             .ToListAsync();
-
-    public Task<IEnumerable<Expense>> GetPageAsync(long userId, int page, int pageSize, CancellationToken cancellationToken) =>
-        GetPageAsync(userId, page, pageSize, n => n.Date, cancellationToken);
 
     public async Task<Expense> UpdateAsync(long id, long amount, CancellationToken cancellationToken)
     {

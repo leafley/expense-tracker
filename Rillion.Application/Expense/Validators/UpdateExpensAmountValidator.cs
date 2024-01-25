@@ -1,4 +1,7 @@
 using FluentValidation;
+using Rillion.Application.Expense.Commands;
+
+namespace Rillion.Application.Expense.Validators;
 
 public class UpdateExpenseAmountValidator : AbstractValidator<UpdateExpenseAmount>
 {

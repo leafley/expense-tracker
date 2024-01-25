@@ -1,3 +1,6 @@
+using Rillion.Application.Expense.Commands;
+using Rillion.Application.Expense.Validators;
+
 namespace Rillion.Application.Tests.Validators;
 
 public class UpdateExpenseAmountValidatorTests

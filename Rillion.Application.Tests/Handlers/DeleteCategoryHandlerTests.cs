@@ -1,3 +1,9 @@
+using Rillion.Application.Abstractions;
+using Rillion.Application.Category.Commands;
+using Rillion.Application.Category.Handlers;
+
+namespace Rillion.Application.Tests.Handlers;
+
 public class DeleteCategoryHandlerTests
 {
     private readonly ICategoryRepository _repository = A.Fake<ICategoryRepository>();
@@ -13,7 +19,7 @@ public class DeleteCategoryHandlerTests
     {
         var command = new DeleteCategory(1);
         A.CallTo(() => _repository.DeleteAsync(command.Id))
-            .Returns(new Category { Id = command.Id, Name = "SomeName" });
+            .Returns(new Domain.Entities.Category { Id = command.Id, Name = "SomeName" });
 
         var result = await _handler.Handle(command, CancellationToken.None);
 
@@ -26,7 +32,7 @@ public class DeleteCategoryHandlerTests
     {
         var command = new DeleteCategory(1);
         A.CallTo(() => _repository.DeleteAsync(command.Id))
-            .Returns(null as Category);
+            .Returns(null as Domain.Entities.Category);
 
         var result = await _handler.Handle(command, CancellationToken.None);
 

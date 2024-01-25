@@ -1,3 +1,5 @@
 using MediatR;
 
-public record UpdateCategory(long Id, string Name) : IRequest<Category>;
+namespace Rillion.Application.Category.Commands;
+
+public record UpdateCategory(long Id, string Name) : IRequest<Domain.Entities.Category>;

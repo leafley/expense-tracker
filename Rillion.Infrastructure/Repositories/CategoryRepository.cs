@@ -1,4 +1,8 @@
 using Microsoft.EntityFrameworkCore;
+using Rillion.Application.Abstractions;
+using Rillion.Domain.Entities;
+
+namespace Rillion.Infrastructure.Repositories;
 
 public class CategoryRepository : ICategoryRepository
 {

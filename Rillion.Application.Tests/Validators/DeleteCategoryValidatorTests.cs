@@ -1,3 +1,6 @@
+using Rillion.Application.Category.Commands;
+using Rillion.Application.Category.Validators;
+
 namespace Rillion.Application.Tests.Validators;
 
 public class DeleteCategoryValidatorTests

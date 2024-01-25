@@ -1,6 +1,10 @@
 using MediatR;
+using Rillion.Application.Abstractions;
+using Rillion.Application.Category.Commands;
 
-public class CreateCategoryHandler : IRequestHandler<CreateCategory, Category>
+namespace Rillion.Application.Category.Handlers;
+
+public class CreateCategoryHandler : IRequestHandler<CreateCategory, Domain.Entities.Category>
 {
     private readonly ICategoryRepository _repository;
 
@@ -9,7 +13,7 @@ public class CreateCategoryHandler : IRequestHandler<CreateCategory, Category>
         _repository = repository;
     }
 
-    public async Task<Category> Handle(CreateCategory request, CancellationToken cancellationToken)
+    public async Task<Domain.Entities.Category> Handle(CreateCategory request, CancellationToken cancellationToken)
     {
 #pragma warning disable CS8604 // Possible null reference argument.
         return await _repository.AddAsync(request.Name);

@@ -1,3 +1,5 @@
 using MediatR;
 
-public record QueryCategory : IRequest<IEnumerable<Category>>;
+namespace Rillion.Application.Category.Queries;
+
+public record QueryCategory : IRequest<IEnumerable<Domain.Entities.Category>>;

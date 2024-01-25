@@ -1,6 +1,10 @@
 using MediatR;
+using Rillion.Application.Abstractions;
+using Rillion.Application.Category.Commands;
 
-public class UpdateCategoryHandler : IRequestHandler<UpdateCategory, Category?>
+namespace Rillion.Application.Category.Handlers;
+
+public class UpdateCategoryHandler : IRequestHandler<UpdateCategory, Domain.Entities.Category?>
 {
     private readonly ICategoryRepository _repository;
 
@@ -9,6 +13,6 @@ public class UpdateCategoryHandler : IRequestHandler<UpdateCategory, Category?>
         _repository = repository;
     }
 
-    public async Task<Category?> Handle(UpdateCategory request, CancellationToken cancellationToken) =>
+    public async Task<Domain.Entities.Category?> Handle(UpdateCategory request, CancellationToken cancellationToken) =>
         await _repository.UpdateAsync(request.Id, request.Name);
 }
