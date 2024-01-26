@@ -5,8 +5,8 @@ POST {{rillion_HostAddress}}/register
 Content-Type: application/json
 
 {
-    "email": "test@test.com",
-    "password": "Mysecretp@ssw0rd"
+    "email": "",
+    "password": ""
 }
 
 ### login
@@ -14,91 +14,81 @@ POST {{rillion_HostAddress}}/login
 Content-Type: application/json
 
 {
-    "email": "test@test.com",
-    "password": "Mysecretp@ssw0rd"
+    "email": "",
+    "password": ""
 }
 
 ### test the token
 GET {{rillion_HostAddress}}/manage/info
-Accept: application/json
-Authorization: Bearer CfDJ8PvtjQMCay1Fm5RgD3Fa7zY-BeN_Pj8SJOkj_YDEVo9vZhgbQ2TM-d6S-USVHlJo6_oDGmxX_FIKKgRp4soELvfVRxrsM2_KVwUNwHIDWP77GdC4jD98JZMAb5Ind9WVArQ6DEXQGFCdcqL9iO73x4EZNucAqT-zgeScW7v8eRao3OtwD9cGxdU4jUKZ9T7ZEp0yqWS-Ha2pWbJ2Wufv4Q6kWUowjROQXyGZDuL_fjfCMQOIE8glCsivQpCLyCxu_iTFtJFpGR33v3-ccCJcz4n4QNr6vaBdhOWF0DQ3bNRCic_I03QHrJ-J7lJAMTni2UBMKb5LiUzuYfZbrk52E6pFiU7azBrP8zCHr_Rov5G8FXzAFB3nlDWbfN3cjGM7jZyII67K4uNLw7aRiQzoB_QbXCkUWCgI1a3TXmBo--2LVXXv3f1872WroOcy_x9j6TSzt99XeIHRx6s3ZrJ1o9QY1vd_XcWxWT-i7_lT2b__bPlb9sdmCgiDa5AYP29XRZhsjOjGJ5EXSzdPhGjk2bFSiJFRRSc_jRqWkGsdY2ye-lzj5dJ1iuBbiqDFWItprib-oz8P3OYu0ro9xaccFNgRBv0hunIpgQt4ZFj9SS6AJEHaAcSh9r4mnd0TeCmWvpzpG8_QQF1y1Pr58Eig56M
+Authorization: Bearer 
 
 ### create a category
 PUT {{rillion_HostAddress}}/category
 Content-Type: application/json
-Authorization: Bearer CfDJ8PvtjQMCay1Fm5RgD3Fa7zY-BeN_Pj8SJOkj_YDEVo9vZhgbQ2TM-d6S-USVHlJo6_oDGmxX_FIKKgRp4soELvfVRxrsM2_KVwUNwHIDWP77GdC4jD98JZMAb5Ind9WVArQ6DEXQGFCdcqL9iO73x4EZNucAqT-zgeScW7v8eRao3OtwD9cGxdU4jUKZ9T7ZEp0yqWS-Ha2pWbJ2Wufv4Q6kWUowjROQXyGZDuL_fjfCMQOIE8glCsivQpCLyCxu_iTFtJFpGR33v3-ccCJcz4n4QNr6vaBdhOWF0DQ3bNRCic_I03QHrJ-J7lJAMTni2UBMKb5LiUzuYfZbrk52E6pFiU7azBrP8zCHr_Rov5G8FXzAFB3nlDWbfN3cjGM7jZyII67K4uNLw7aRiQzoB_QbXCkUWCgI1a3TXmBo--2LVXXv3f1872WroOcy_x9j6TSzt99XeIHRx6s3ZrJ1o9QY1vd_XcWxWT-i7_lT2b__bPlb9sdmCgiDa5AYP29XRZhsjOjGJ5EXSzdPhGjk2bFSiJFRRSc_jRqWkGsdY2ye-lzj5dJ1iuBbiqDFWItprib-oz8P3OYu0ro9xaccFNgRBv0hunIpgQt4ZFj9SS6AJEHaAcSh9r4mnd0TeCmWvpzpG8_QQF1y1Pr58Eig56M
+Authorization: Bearer 
 
 {
-    "Name": "Travel"
+    "Name": ""
 }
 
 ### update a category
 POST {{rillion_HostAddress}}/category
 Content-Type: application/json
-Authorization: Bearer CfDJ8PvtjQMCay1Fm5RgD3Fa7zaCSQx6becyJuqCF3_th1gNUAJd4kKKUNx1ju10ne0gTUI7K9R7ai9ezt-7JeZV5j_MIBo20F82hOWzP05VuE9BP2MZUCHQwcc9eduQR7EI5yO8vICl9WO8MXDDFPLdPPPIagFhcHdiCxHOkNfmYqFa5ylQsVIrGoBHMTpLGDa4doxqIyWCRqaQkDxnLNOy10bs59a49VzY7ZU8YdEUkYiP4W8t_dea5a55t37h3nQ53ZJgLXhTDNqfRYDhs5QkGhnphNwe0LD9k-JgqvuerP9pfPplgjrGmnymhpCGmCNCibcwhv9eAmKqlTXR3YjZ8mvYhmgo5_g7bcX_idcgU6ETecS-IrG3TnuLaq2vLszyFbAodICWwSQrkkNer5Ni6i-mCBnMe6E28iE4aaIGd1qwVYiJ5fJuB3SLt3Pgf-82Docm20NIX2uhRpoDkv5_0IGaS1az7L23KLU4mTxFd-IgzvYX8dqbS_Yx60mFBiluiv2b_Ozwhrh9oHUTKzDUsR91McwUPAXpVdObDNir0_ZG1MKz9rz0B8dwQPdoOq5HF0nwZ6i066zZwiKwuUGbMWm7g-R_LuAQGGaK1jKOXPSz_HABa61CUCwfsKxgbTv23qaCa_GD3cMswHs-HcBUaes
+Authorization: Bearer 
 
 {
-    "Id": 1,
-    "Name": "Allowance"
+    "Id": 0,
+    "Name": ""
 }
 
 ### get categories
 GET {{rillion_HostAddress}}/category
-Content-Type: application/json
-Authorization: Bearer CfDJ8PvtjQMCay1Fm5RgD3Fa7zbNKmrOHvVzkXfiUCv__K4qjFdlqIfpf6WPeXMX1fjfz1RG7t18t21rUq4B_CMdWTifO4hRCJolcUpadnTq8fmtCgOpp9_sxMOzu34aiHV_YH4Zw_69A7QbfKuAGq7PIaxoGmWQV1ARRKOFWNVHl1wrcVqk7GxHGERzHVaUKyq9HU3tmPolq61akb3-6nqorPSfGAyFcjMgG43XzUyuWJQAFCOveXSkRGtbljUp9DpX2PwkmY0srbhalMBjwWdnw20UnPZxyYvGYJK6yFodaaXo6_TKHERLl_i9woqNhRqCnuaCk7QGdIgZkHssYmGt7oo7jf4Rd9KVf3O9WJkgeUtljdI-8ZNnMTtYkz9ppi7ZkyPYE-E3DgJ1NMZkSvdXeoKa4m8HNG6Q35VG7sDr2saDkxFst7pjlmwYENWp08GEzeN0KQP3vME-EwgrXoAdZjiD0a9rwtEWrwTC9pjDzaMDrm_hS5SmFYDsBnlyQmnuOCw6U6lFemdlU8VUISRVfftS5kNlKB9bzD1MFy5Ca_-pGU5yEuGDZJa5FO173S6IDSciYZPAzUeusb4PDooOEF4193D11PMaZYi_k3i-F_fV3_P0qK0HvDZEq2fr7X-zbU4-vzMkwYzw8cMGbSkrN14
-
+Authorization: Bearer 
 
 ### delete a category
 DELETE {{rillion_HostAddress}}/category
 Content-Type: application/json
-Authorization: Bearer CfDJ8PvtjQMCay1Fm5RgD3Fa7zbNKmrOHvVzkXfiUCv__K4qjFdlqIfpf6WPeXMX1fjfz1RG7t18t21rUq4B_CMdWTifO4hRCJolcUpadnTq8fmtCgOpp9_sxMOzu34aiHV_YH4Zw_69A7QbfKuAGq7PIaxoGmWQV1ARRKOFWNVHl1wrcVqk7GxHGERzHVaUKyq9HU3tmPolq61akb3-6nqorPSfGAyFcjMgG43XzUyuWJQAFCOveXSkRGtbljUp9DpX2PwkmY0srbhalMBjwWdnw20UnPZxyYvGYJK6yFodaaXo6_TKHERLl_i9woqNhRqCnuaCk7QGdIgZkHssYmGt7oo7jf4Rd9KVf3O9WJkgeUtljdI-8ZNnMTtYkz9ppi7ZkyPYE-E3DgJ1NMZkSvdXeoKa4m8HNG6Q35VG7sDr2saDkxFst7pjlmwYENWp08GEzeN0KQP3vME-EwgrXoAdZjiD0a9rwtEWrwTC9pjDzaMDrm_hS5SmFYDsBnlyQmnuOCw6U6lFemdlU8VUISRVfftS5kNlKB9bzD1MFy5Ca_-pGU5yEuGDZJa5FO173S6IDSciYZPAzUeusb4PDooOEF4193D11PMaZYi_k3i-F_fV3_P0qK0HvDZEq2fr7X-zbU4-vzMkwYzw8cMGbSkrN14
+Authorization: Bearer 
 
 {
-    "Id": 1
+    "Id": 0
 }
 
 ### add expense
 PUT {{rillion_HostAddress}}/expense
 Content-Type: application/json
-Authorization: Bearer CfDJ8PvtjQMCay1Fm5RgD3Fa7zY-BeN_Pj8SJOkj_YDEVo9vZhgbQ2TM-d6S-USVHlJo6_oDGmxX_FIKKgRp4soELvfVRxrsM2_KVwUNwHIDWP77GdC4jD98JZMAb5Ind9WVArQ6DEXQGFCdcqL9iO73x4EZNucAqT-zgeScW7v8eRao3OtwD9cGxdU4jUKZ9T7ZEp0yqWS-Ha2pWbJ2Wufv4Q6kWUowjROQXyGZDuL_fjfCMQOIE8glCsivQpCLyCxu_iTFtJFpGR33v3-ccCJcz4n4QNr6vaBdhOWF0DQ3bNRCic_I03QHrJ-J7lJAMTni2UBMKb5LiUzuYfZbrk52E6pFiU7azBrP8zCHr_Rov5G8FXzAFB3nlDWbfN3cjGM7jZyII67K4uNLw7aRiQzoB_QbXCkUWCgI1a3TXmBo--2LVXXv3f1872WroOcy_x9j6TSzt99XeIHRx6s3ZrJ1o9QY1vd_XcWxWT-i7_lT2b__bPlb9sdmCgiDa5AYP29XRZhsjOjGJ5EXSzdPhGjk2bFSiJFRRSc_jRqWkGsdY2ye-lzj5dJ1iuBbiqDFWItprib-oz8P3OYu0ro9xaccFNgRBv0hunIpgQt4ZFj9SS6AJEHaAcSh9r4mnd0TeCmWvpzpG8_QQF1y1Pr58Eig56M
+Authorization: Bearer 
 
 {
-    "UserId": 1,
-    "Amount": 500,
-    "CategoryId": 2,
+    "UserId": 0,
+    "Amount": 0,
+    "CategoryId": 0,
     "Date": "2024-01-25",
-    "Description": "Some description"
+    "Description": ""
 }
 
 ### get expense
-GET {{rillion_HostAddress}}/expense
-Content-Type: application/json
-Authorization: Bearer CfDJ8PvtjQMCay1Fm5RgD3Fa7zY-BeN_Pj8SJOkj_YDEVo9vZhgbQ2TM-d6S-USVHlJo6_oDGmxX_FIKKgRp4soELvfVRxrsM2_KVwUNwHIDWP77GdC4jD98JZMAb5Ind9WVArQ6DEXQGFCdcqL9iO73x4EZNucAqT-zgeScW7v8eRao3OtwD9cGxdU4jUKZ9T7ZEp0yqWS-Ha2pWbJ2Wufv4Q6kWUowjROQXyGZDuL_fjfCMQOIE8glCsivQpCLyCxu_iTFtJFpGR33v3-ccCJcz4n4QNr6vaBdhOWF0DQ3bNRCic_I03QHrJ-J7lJAMTni2UBMKb5LiUzuYfZbrk52E6pFiU7azBrP8zCHr_Rov5G8FXzAFB3nlDWbfN3cjGM7jZyII67K4uNLw7aRiQzoB_QbXCkUWCgI1a3TXmBo--2LVXXv3f1872WroOcy_x9j6TSzt99XeIHRx6s3ZrJ1o9QY1vd_XcWxWT-i7_lT2b__bPlb9sdmCgiDa5AYP29XRZhsjOjGJ5EXSzdPhGjk2bFSiJFRRSc_jRqWkGsdY2ye-lzj5dJ1iuBbiqDFWItprib-oz8P3OYu0ro9xaccFNgRBv0hunIpgQt4ZFj9SS6AJEHaAcSh9r4mnd0TeCmWvpzpG8_QQF1y1Pr58Eig56M
-
-{
-    "UserId": 1,
-    "Page": 0,
-    "PageSize": 20
-}
+GET {{rillion_HostAddress}}/expense?userId=1&page=0&pageSize=20
+Authorization: Bearer 
 
 ### update expense amount
 POST {{rillion_HostAddress}}/expense/amount
 Content-Type: application/json
-Authorization: Bearer CfDJ8PvtjQMCay1Fm5RgD3Fa7zY-BeN_Pj8SJOkj_YDEVo9vZhgbQ2TM-d6S-USVHlJo6_oDGmxX_FIKKgRp4soELvfVRxrsM2_KVwUNwHIDWP77GdC4jD98JZMAb5Ind9WVArQ6DEXQGFCdcqL9iO73x4EZNucAqT-zgeScW7v8eRao3OtwD9cGxdU4jUKZ9T7ZEp0yqWS-Ha2pWbJ2Wufv4Q6kWUowjROQXyGZDuL_fjfCMQOIE8glCsivQpCLyCxu_iTFtJFpGR33v3-ccCJcz4n4QNr6vaBdhOWF0DQ3bNRCic_I03QHrJ-J7lJAMTni2UBMKb5LiUzuYfZbrk52E6pFiU7azBrP8zCHr_Rov5G8FXzAFB3nlDWbfN3cjGM7jZyII67K4uNLw7aRiQzoB_QbXCkUWCgI1a3TXmBo--2LVXXv3f1872WroOcy_x9j6TSzt99XeIHRx6s3ZrJ1o9QY1vd_XcWxWT-i7_lT2b__bPlb9sdmCgiDa5AYP29XRZhsjOjGJ5EXSzdPhGjk2bFSiJFRRSc_jRqWkGsdY2ye-lzj5dJ1iuBbiqDFWItprib-oz8P3OYu0ro9xaccFNgRBv0hunIpgQt4ZFj9SS6AJEHaAcSh9r4mnd0TeCmWvpzpG8_QQF1y1Pr58Eig56M
+Authorization: Bearer 
 
 {
-    "UserId": 1,
-    "Id": 1,
-    "Amount": 400
+    "UserId": 0,
+    "Id": 0,
+    "Amount": 0
 }
 
 ### update expense category
 POST {{rillion_HostAddress}}/expense/category
 Content-Type: application/json
-Authorization: Bearer CfDJ8PvtjQMCay1Fm5RgD3Fa7zY-BeN_Pj8SJOkj_YDEVo9vZhgbQ2TM-d6S-USVHlJo6_oDGmxX_FIKKgRp4soELvfVRxrsM2_KVwUNwHIDWP77GdC4jD98JZMAb5Ind9WVArQ6DEXQGFCdcqL9iO73x4EZNucAqT-zgeScW7v8eRao3OtwD9cGxdU4jUKZ9T7ZEp0yqWS-Ha2pWbJ2Wufv4Q6kWUowjROQXyGZDuL_fjfCMQOIE8glCsivQpCLyCxu_iTFtJFpGR33v3-ccCJcz4n4QNr6vaBdhOWF0DQ3bNRCic_I03QHrJ-J7lJAMTni2UBMKb5LiUzuYfZbrk52E6pFiU7azBrP8zCHr_Rov5G8FXzAFB3nlDWbfN3cjGM7jZyII67K4uNLw7aRiQzoB_QbXCkUWCgI1a3TXmBo--2LVXXv3f1872WroOcy_x9j6TSzt99XeIHRx6s3ZrJ1o9QY1vd_XcWxWT-i7_lT2b__bPlb9sdmCgiDa5AYP29XRZhsjOjGJ5EXSzdPhGjk2bFSiJFRRSc_jRqWkGsdY2ye-lzj5dJ1iuBbiqDFWItprib-oz8P3OYu0ro9xaccFNgRBv0hunIpgQt4ZFj9SS6AJEHaAcSh9r4mnd0TeCmWvpzpG8_QQF1y1Pr58Eig56M
+Authorization: Bearer 
 
 {
-    "UserId": 1,
-    "Id": 1,
-    "CategoryId": 3
+    "UserId": 0,
+    "Id": 0,
+    "CategoryId": 0
 }
