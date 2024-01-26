@@ -1,5 +1,6 @@
 using Rillion.Application.Expense.Commands;
 using Rillion.Application.Expense.Validators;
+using Rillion.Application.Validation;
 
 namespace Rillion.Application.Tests.Validators;
 
@@ -71,17 +72,5 @@ public class CreateExpenseValidatorTests
         var result = _validator.Validate(command);
 
         result.Errors.Should().Contain(n => n.PropertyName == nameof(command.Description));
-    }
-
-    [Theory]
-    [InlineData(0)]
-    [InlineData(long.MinValue)]
-    public void Validate_InvalidUserId_AddUserIdError(long userId)
-    {
-        var command = CreateSomeExpense with { UserId = userId };
-
-        var result = _validator.Validate(command);
-
-        result.Errors.Should().Contain(n => n.PropertyName == nameof(command.UserId));
     }
 }

@@ -25,18 +25,6 @@ public class DeleteExpenseValidatorTests
     [Theory]
     [InlineData(0)]
     [InlineData(long.MinValue)]
-    public void Validate_InvalidUserId_AddUserIdError(long userId)
-    {
-        var command = new DeleteExpense(1, userId);
-
-        var result = _validator.Validate(command);
-
-        result.Errors.Should().Contain(n => n.PropertyName == nameof(command.UserId));
-    }
-
-    [Theory]
-    [InlineData(0)]
-    [InlineData(long.MinValue)]
     public void Validate_InvalidId_AddIdError(long id)
     {
         var command = new DeleteExpense(id, 1);

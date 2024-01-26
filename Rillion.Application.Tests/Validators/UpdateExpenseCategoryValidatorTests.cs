@@ -37,18 +37,6 @@ public class UpdateExpenseCategoryValidatorTests
     [Theory]
     [InlineData(0)]
     [InlineData(long.MinValue)]
-    public void Validate_InvalidUserId_AddUserIdError(long userId)
-    {
-        var command = new UpdateExpenseCategory(1, userId, 1);
-
-        var result = _validator.Validate(command);
-
-        result.Errors.Should().Contain(n => n.PropertyName == nameof(command.UserId));
-    }
-
-    [Theory]
-    [InlineData(0)]
-    [InlineData(long.MinValue)]
     public void Validate_InvalidId_AddIdError(long id)
     {
         var command = new UpdateExpenseCategory(id, 1, 1);
