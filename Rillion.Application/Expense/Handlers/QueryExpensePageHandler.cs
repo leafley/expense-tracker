@@ -14,5 +14,5 @@ public class QueryExpensePageHandler : IRequestHandler<QueryExpensePage, IEnumer
     }
 
     public async Task<IEnumerable<Domain.Entities.Expense>> Handle(QueryExpensePage request, CancellationToken cancellationToken) =>
-        await _repository.GetPageAsync(request.UserId, request.Page, request.PageSize, cancellationToken);
+        await _repository.GetPageAsync(request.UserId, request.Page, request.PageSize ?? 0, cancellationToken);
 }

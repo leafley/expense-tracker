@@ -36,6 +36,10 @@ public class ExpenseController : ControllerBase
         await _mediator.Send(command, cancellationToken);
 
     [HttpGet]
-    public async Task<IEnumerable<Domain.Entities.Expense>> GetAsync(QueryExpensePage query, CancellationToken cancellationToken) =>
-        await _mediator.Send(query, cancellationToken);
+    public async Task<IEnumerable<Domain.Entities.Expense>> GetAsync(
+        [FromQuery] long userId,
+        [FromQuery] int page,
+        [FromQuery] int? pageSize,
+        CancellationToken cancellationToken) =>
+        await _mediator.Send(new QueryExpensePage(userId, page, pageSize), cancellationToken);
 }
