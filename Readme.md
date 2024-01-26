@@ -4,15 +4,13 @@ The Expense Tracker is a `net8.0` ASP.NET Core Web API, secured with ASP.NET Cor
 
 ## Requirements
 
-The project requires a running, empty MSSQL database. LocalDB should work, but I couldn't verify that on my machine (LocalDB does not have native Linux support).
+The project requires [.NET SDK 8](https://dotnet.microsoft.com/en-us/download/dotnet/8.0) and a running, empty MSSQL database. LocalDB should work, but I couldn't verify that on my machine (LocalDB does not have native Linux support).
 
 The [REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) extension for Visual Studio Code (or similar) is required to execute API calls from an `.http` file.
 
-## Installation
+## Setup
 
-Configure the connection string for the MSSQL database in `Rillion.AspNet/appsettings.json`.
-
-All the commands are run from the root of the repository
+Modify the connection string in `Rillion.AspNet/appsettings.json` to point to your MSSQL database. All the commands are run from the root of the repository.
 
 Build the project.
 
@@ -63,3 +61,25 @@ Authorization: Bearer **access token goes here**
 ```
 
 Alternatively you may follow these steps using another tool such as cURL of Postman.
+
+## Project structure
+
+### Rillion.AspNet
+
+This is the entry point for the Web API. It handles DI, user authentication and mapping controller actions to request that are sent off to MediatR.
+
+### Rillion.Application
+
+This projects represents the application, abstracted from any hosting concerns. It's the mediator and as such it brings together validation, business logic and data access. We are very thin in terms of business logic, so it just validation and data access.
+
+### Rillion.Application.Tests
+
+Contains unit tests for the validators and handlers in `Rillion.Application`.
+
+### Rillion.Domain
+
+Contains the pure domain models.
+
+### Rillion.Infrastructure
+
+Contains the data store logic and maps the database entities to the domain model and vice versa.
