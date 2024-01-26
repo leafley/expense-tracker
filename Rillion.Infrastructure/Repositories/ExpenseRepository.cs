@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Rillion.Application.Abstractions;
 using Rillion.Domain.Entities;
 using Rillion.Infrastructure;
@@ -36,14 +37,26 @@ public class ExpenseRepository : IExpenseRepository
         return expense;
     }
 
-    public async Task<IEnumerable<Expense>> GetPageAsync(long userId, int page, int pageSize, CancellationToken cancellationToken) =>
-        await _context.Expenses
-            .AsNoTracking()
-            .Where(n => n.UserId == userId)
-            .OrderBy(n => n.Id)
+    public async Task<IEnumerable<Expense>> GetPageAsync(long userId, int page, int pageSize, CancellationToken cancellationToken)
+    {
+        var result = await (
+            from expense in _context.Expenses.AsNoTracking()
+            join category in _context.Categories.AsNoTracking()
+                on expense.CategoryId equals category.Id
+            where expense.UserId == userId
+            orderby expense.Id
+            select new { expense, category }
+        )
             .Skip(page * pageSize)
             .Take(pageSize)
             .ToListAsync(cancellationToken);
+
+        return result.Select(n =>
+        {
+            n.expense.Category = n.category;
+            return n.expense;
+        });
+    }
 
     public async Task<Expense?> UpdateAmountAsync(long id, long userId, long amount, CancellationToken cancellationToken)
     {

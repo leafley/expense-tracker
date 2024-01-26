@@ -8,5 +8,5 @@ public class Category
     public long Id { get; set; }
     [Required]
     public string Name { get; set; } = string.Empty;
-    public ICollection<Expense> Expenses { get; } = Array.Empty<Expense>();
+    public ICollection<Expense> Expenses { get; } = new List<Expense>();
 }
